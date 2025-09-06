@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WDD 231 - Course Home | Richman Bibowei Fedidel</title>
+  <meta name="description" content="Course home page for WDD 231 showcasing projects, courses, and site navigation.">
+  <meta name="author" content="Richman Bibowei Fedidel">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/courses.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="images/logo.svg" alt="Site logo" width="48" height="48">
+      <span class="site-name">Richman Bibowei Fedidel</span>
+    </div>
+    <button id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav id="nav" class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="chamber/">Chamber</a>
+      <a href="final/">Final</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Home</h1>
+
+    <section aria-labelledby="sec-overview">
+      <h2 id="sec-overview">Overview</h2>
+      <p>Brief intro about you and the course.</p>
+    </section>
+
+    <section aria-labelledby="sec-certificate">
+      <h2 id="sec-certificate">Certificate Courses</h2>
+
+      <div class="filters">
+        <button data-filter="all">All Courses</button>
+        <button data-filter="wdd">WDD Courses</button>
+        <button data-filter="cse">CSE Courses</button>
+      </div>
+
+      <div id="courses" class="course-grid" aria-live="polite"></div>
+      <p class="credits"><strong>Total Credits:</strong> <span id="creditTotal">0</span></p>
+    </section>
+
+    <section aria-labelledby="sec-links">
+      <h2 id="sec-links">Resources & Links</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1">MDN: &lt;h1&gt;</a></li>
+        <li><a href="https://web.dev/measure/">Lighthouse/Measure</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p class="social">
+      <a href="https://github.com/yourusername/wdd231" aria-label="GitHub">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/yourprofile" aria-label="LinkedIn">LinkedIn</a> ·
+      <a href="https://x.com/yourhandle" aria-label="X">X</a>
+    </p>
+    <p>
+      &copy; <span id="year"></span> <span id="owner">Richman Bibowei Fedidel</span> · <span id="location">Nigeria</span>
+    </p>
+    <p id="lastModified"></p>
+  </footer>
+</body>
+</html>

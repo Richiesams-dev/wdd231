@@ -1,0 +1,23 @@
+@media (min-width: 720px) {
+  #menu {
+    display: none;
+  }
+  .nav {
+    display: flex !important;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+  .course-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
