@@ -1,23 +1,41 @@
-@media (min-width: 720px) {
-  #menu {
-    display: none;
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
   }
+
   .nav {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
     gap: 1rem;
   }
-  header {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 10;
+
+  .nav a {
+    background-color: transparent;
+    color: var(--color-text);
+    border-bottom: none;
+    border-radius: 0.25rem;
   }
 
-  main {
-    grid-template-columns: 1fr;
+  #menu {
+    display: none;
   }
+
+  .section-container {
+    grid-template-columns: 2fr 1fr;
+  }
+
   .course-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-section p {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .course-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
