@@ -1,0 +1,38 @@
+[
+  {
+    "familyName": "opute",
+    "date": "23-3-2024",
+    "familyNumber": 5,
+    "visitedByBishopric": true,
+    "familyMembers": [
+      {
+        "name": "daniel opute",
+        "gender": "male",
+        "birthDate": "24th of december, 1997"
+      },
+      {
+        "name": "philp opute",
+        "gender": "male",
+        "birthDate": "15-9-1994"
+      }
+    ]
+  },
+  {
+    "familyName": "gbakeje",
+    "date": "10th of april, 2024",
+    "familyNumber": 7,
+    "visitedByBishopric": true,
+    "familyMembers": [
+      {
+        "name": "remusua gbakeje",
+        "gender": "male",
+        "birthDate": "4-11-1999"
+      },
+      {
+        "name": "ovie gbakeje",
+        "gender": "male",
+        "birthDate": "20-6-1998"
+      }
+    ]
+  }
+]
