@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: #f9f9f9;
@@ -38,21 +38,7 @@ header {
   align-items: center;
 }
 
-.logo-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--primary-color);
-  font-size: 1.5rem;
-}
-
-.logo h1 {
+.logo h2 {
   font-size: 1.5rem;
 }
 
@@ -149,7 +135,6 @@ main {
   object-fit: contain;
   margin-bottom: 1rem;
 }
-
 .member-card h3 {
   color: var(--primary-color);
   margin-bottom: 0.5rem;
