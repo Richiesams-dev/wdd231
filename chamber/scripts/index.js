@@ -1,12 +1,13 @@
-// Set copyright year and last modified date
-document.getElementById("copyright-year").textContent = new Date().getFullYear();
+document.getElementById("copyright-year").textContent =
+  new Date().getFullYear();
 document.getElementById("last-modified").textContent = document.lastModified;
 
 // Member data for spotlights
 const membersData = [
   {
     name: "Complete Computers And Technology Limited",
-    address: "13, Adesuwa Girls Grammer School Road, Off Sapele Road, GRA Benin City, Nigeria",
+    address:
+      "13, Adesuwa Girls Grammer School Road, Off Sapele Road, GRA Benin City, Nigeria",
     phone: "0803 353 5625",
     website: "https://cctechlimited.com",
     logo: "https://cctechlimited.com/images/CCT-logo.png",
@@ -24,16 +25,18 @@ const membersData = [
   },
   {
     name: "Ken E. Mozia & Co (SAN) Law Firm",
-    address: "G.R.A, Plot 87 A Okoro - Otun Avenue, off Ikpokpan Road, Benin City, Nigeria",
+    address:
+      "G.R.A, Plot 87 A Okoro - Otun Avenue, off Ikpokpan Road, Benin City, Nigeria",
     phone: "0703 361 9866",
     website: "https://www.facebook.com/Kenmoziasan",
-    logo: "https://via.placeholder.com/100x100/1a4b84/FFFFFF?text=KEM", // Replaced problematic URL
+    logo: "https://via.placeholder.com/100x100/1a4b84/FFFFFF?text=KEM",
     membership: "Silver",
     level: 2,
   },
   {
     name: "Benin Medical Care",
-    address: "53 Adesuwa Grammar School Road, off Sapele Road, Benin City, Nigeria",
+    address:
+      "53 Adesuwa Grammar School Road, off Sapele Road, Benin City, Nigeria",
     phone: "0811 389 4440",
     website: "https://beninmedicalcare.com",
     logo: "https://beninmedicalcare.com/wp-content/uploads/2025/06/cropped-logo-scaled-1.png",
@@ -51,10 +54,11 @@ const membersData = [
   },
   {
     name: "Celebrity Fitness Gym",
-    address: "1 Modupe Asemota Cl, Adesuwa Gram School Rd, Gra, Benin City, Nigeria",
+    address:
+      "1 Modupe Asemota Cl, Adesuwa Gram School Rd, Gra, Benin City, Nigeria",
     phone: "0810 729 4405",
     website: "https://www.instagram.com/celebrityfitnessng",
-    logo: "https://via.placeholder.com/100x100/d4af37/1d3557?text=CFG", // Replaced problematic URL
+    logo: "https://via.placeholder.com/100x100/d4af37/1d3557?text=CFG",
     membership: "Silver",
     level: 2,
   },
@@ -66,22 +70,21 @@ const membersData = [
     logo: "https://www.accessbankplc.com/Content/images/access-lg-logo.png",
     membership: "Gold",
     level: 3,
-  }
+  },
 ];
 
 // Function to display random spotlights
 function displaySpotlights() {
   const container = document.getElementById("spotlightsContainer");
+  if (!container) return;
+
   container.innerHTML = "";
 
-  // Filter gold and silver members (level 2 or 3)
   const eligibleMembers = membersData.filter((member) => member.level >= 2);
 
-  // Randomly select 2-3 members
-  const numSpotlights = Math.floor(Math.random() * 2) + 2; // 2 or 3
+  const numSpotlights = Math.floor(Math.random() * 2) + 2;
   const selectedMembers = [];
 
-  // Create a copy to avoid modifying original array
   const availableMembers = [...eligibleMembers];
 
   for (let i = 0; i < numSpotlights && availableMembers.length > 0; i++) {
@@ -115,68 +118,87 @@ function displaySpotlights() {
 
 // Function to fetch weather data from OpenWeatherMap API
 async function fetchWeatherData() {
-  const apiKey = '';
-  const city = 'Benin City';
-  const country = 'NG';
-  
-  // Use demo mode if no API key provided
-  if (apiKey === '') {
+  const apiKey = "0c2f3c0ae9eedc32cc187069d5f0e36a";
+
+  // If no API key provided, use simulated data immediately
+  if (!apiKey) {
+    console.log("No valid API key provided - using simulated weather data");
     useSimulatedWeatherData();
     return;
   }
-  
+
+  const city = "Benin City";
+  const country = "NG";
+
   try {
     // Current weather
     const currentResponse = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=imperial&appid=${apiKey}`
     );
-    
+
     if (!currentResponse.ok) {
-      throw new Error('Weather data not available');
+      throw new Error(`Weather API error: ${currentResponse.status}`);
     }
-    
+
     const currentData = await currentResponse.json();
-    
+    console.log("Current Weather Data:", currentData);
+
     // Forecast (5-day, 3-hour intervals)
     const forecastResponse = await fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&units=imperial&appid=${apiKey}`
     );
-    
+
     if (!forecastResponse.ok) {
-      throw new Error('Forecast data not available');
+      throw new Error(`Forecast API error: ${forecastResponse.status}`);
     }
-    
+
     const forecastData = await forecastResponse.json();
+    console.log("Forecast Data:", forecastData);
+
+    // Update UI with fetched data
     updateWeatherUI(currentData, forecastData);
-    
   } catch (error) {
-    console.error('Error fetching weather data:', error);
+    console.error("Error fetching weather data:", error);
     useSimulatedWeatherData();
   }
 }
 
 // Function to update weather UI with real data
 function updateWeatherUI(currentData, forecastData) {
-  // Current weather
-  document.querySelector(".weather-temp").textContent = `${Math.round(currentData.main.temp)}°F`;
-  document.querySelector(".weather-desc").textContent = currentData.weather[0].description.charAt(0).toUpperCase() + currentData.weather[0].description.slice(1);
-  
-  // Weather icon
-  const iconCode = currentData.weather[0].icon;
-  const iconClass = getWeatherIconClass(iconCode);
-  document.querySelector(".weather-icon").className = `fas ${iconClass} weather-icon`;
+  const weatherTemp = document.querySelector(".weather-temp");
+  const weatherDesc = document.querySelector(".weather-desc");
+  const weatherIcon = document.querySelector(".weather-icon");
+
+  if (weatherTemp)
+    weatherTemp.textContent = `${Math.round(currentData.main.temp)}°F`;
+  if (weatherDesc)
+    weatherDesc.textContent =
+      currentData.weather[0].description.charAt(0).toUpperCase() +
+      currentData.weather[0].description.slice(1);
+
+  if (weatherIcon) {
+    const iconCode = currentData.weather[0].icon;
+    const iconClass = getWeatherIconClass(iconCode);
+    weatherIcon.className = `fas ${iconClass} weather-icon`;
+  }
 
   // 3-day forecast with proper labels
   const forecastDays = getThreeDayForecast(forecastData);
   const forecastElements = document.querySelectorAll(".forecast-day");
-  
+
   forecastElements.forEach((element, index) => {
     if (forecastDays[index]) {
       const day = forecastDays[index];
-      element.querySelector(".forecast-date").textContent = day.date;
-      element.querySelector(".forecast-temp").textContent = `${Math.round(day.temp)}°F`;
-      const forecastIconClass = getWeatherIconClass(day.icon);
-      element.querySelector("i").className = `fas ${forecastIconClass}`;
+      const dateElement = element.querySelector(".forecast-date");
+      const tempElement = element.querySelector(".forecast-temp");
+      const iconElement = element.querySelector("i");
+
+      if (dateElement) dateElement.textContent = day.date;
+      if (tempElement) tempElement.textContent = `${Math.round(day.temp)}°F`;
+      if (iconElement) {
+        const forecastIconClass = getWeatherIconClass(day.icon);
+        iconElement.className = `fas ${forecastIconClass}`;
+      }
     }
   });
 }
@@ -184,110 +206,146 @@ function updateWeatherUI(currentData, forecastData) {
 // Function to get proper day names for forecast
 function getThreeDayForecast(forecastData) {
   const forecasts = [];
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const today = new Date();
-  
+
   // Get forecasts for next 3 days
   for (let i = 1; i <= 3; i++) {
     const targetDate = new Date(today);
     targetDate.setDate(today.getDate() + i);
     const targetDayName = days[targetDate.getDay()];
-    
-    // Find forecast for around noon (12 PM) for each day
+
     const targetTime = new Date(targetDate);
     targetTime.setHours(12, 0, 0, 0);
-    
-    // Find the closest forecast to noon
+
     let closestForecast = null;
     let smallestDiff = Infinity;
-    
-    forecastData.list.forEach(item => {
+
+    forecastData.list.forEach((item) => {
       const itemTime = new Date(item.dt * 1000);
       const timeDiff = Math.abs(itemTime - targetTime);
-      
+
       if (timeDiff < smallestDiff) {
         smallestDiff = timeDiff;
         closestForecast = item;
       }
     });
-    
+
     if (closestForecast) {
       forecasts.push({
         date: targetDayName,
         temp: closestForecast.main.temp,
-        icon: closestForecast.weather[0].icon
+        icon: closestForecast.weather[0].icon,
       });
     }
   }
-  
+
   return forecasts;
 }
 
 // Weather icon mapping
 function getWeatherIconClass(iconCode) {
   const iconMap = {
-    '01d': 'fa-sun', '01n': 'fa-moon',
-    '02d': 'fa-cloud-sun', '02n': 'fa-cloud-moon',
-    '03d': 'fa-cloud', '03n': 'fa-cloud',
-    '04d': 'fa-cloud', '04n': 'fa-cloud',
-    '09d': 'fa-cloud-rain', '09n': 'fa-cloud-rain',
-    '10d': 'fa-cloud-sun-rain', '10n': 'fa-cloud-moon-rain',
-    '11d': 'fa-bolt', '11n': 'fa-bolt',
-    '13d': 'fa-snowflake', '13n': 'fa-snowflake',
-    '50d': 'fa-smog', '50n': 'fa-smog'
+    "01d": "fa-sun",
+    "01n": "fa-moon",
+    "02d": "fa-cloud-sun",
+    "02n": "fa-cloud-moon",
+    "03d": "fa-cloud",
+    "03n": "fa-cloud",
+    "04d": "fa-cloud",
+    "04n": "fa-cloud",
+    "09d": "fa-cloud-rain",
+    "09n": "fa-cloud-rain",
+    "10d": "fa-cloud-sun-rain",
+    "10n": "fa-cloud-moon-rain",
+    "11d": "fa-bolt",
+    "11n": "fa-bolt",
+    "13d": "fa-snowflake",
+    "13n": "fa-snowflake",
+    "50d": "fa-smog",
+    "50n": "fa-smog",
   };
-  
-  return iconMap[iconCode] || 'fa-cloud';
+
+  return iconMap[iconCode] || "fa-cloud";
 }
 
 // Fallback function for simulated weather data
 function useSimulatedWeatherData() {
-  console.log("Using simulated weather data");
-  
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  console.log("Using simulated weather data for Benin City");
+
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const today = new Date();
-  
+
+  // Realistic weather data for Benin City, Nigeria
   const weatherData = {
     current: {
       temp: 82,
-      description: "Sunny",
-      icon: "fa-sun"
+      description: "Partly Cloudy",
+      icon: "fa-cloud-sun",
     },
     forecast: [
-      { 
-        date: days[(today.getDay() + 1) % 7], 
-        temp: 84, 
-        icon: "fa-cloud-sun" 
+      {
+        date: days[(today.getDay() + 1) % 7],
+        temp: 84,
+        icon: "fa-sun",
       },
-      { 
-        date: days[(today.getDay() + 2) % 7], 
-        temp: 80, 
-        icon: "fa-cloud" 
+      {
+        date: days[(today.getDay() + 2) % 7],
+        temp: 81,
+        icon: "fa-cloud-sun",
       },
-      { 
-        date: days[(today.getDay() + 3) % 7], 
-        temp: 78, 
-        icon: "fa-cloud-showers-heavy" 
-      }
-    ]
+      {
+        date: days[(today.getDay() + 3) % 7],
+        temp: 79,
+        icon: "fa-cloud-showers-heavy",
+      },
+    ],
   };
 
-  document.querySelector(".weather-temp").textContent = `${weatherData.current.temp}°F`;
-  document.querySelector(".weather-desc").textContent = weatherData.current.description;
-  document.querySelector(".weather-icon").className = `fas ${weatherData.current.icon} weather-icon`;
+  const weatherTemp = document.querySelector(".weather-temp");
+  const weatherDesc = document.querySelector(".weather-desc");
+  const weatherIcon = document.querySelector(".weather-icon");
+
+  if (weatherTemp) weatherTemp.textContent = `${weatherData.current.temp}°F`;
+  if (weatherDesc) weatherDesc.textContent = weatherData.current.description;
+  if (weatherIcon)
+    weatherIcon.className = `fas ${weatherData.current.icon} weather-icon`;
 
   const forecastElements = document.querySelectorAll(".forecast-day");
   forecastElements.forEach((element, index) => {
     if (weatherData.forecast[index]) {
-      element.querySelector(".forecast-date").textContent = weatherData.forecast[index].date;
-      element.querySelector(".forecast-temp").textContent = `${weatherData.forecast[index].temp}°F`;
-      element.querySelector("i").className = `fas ${weatherData.forecast[index].icon}`;
+      const dateElement = element.querySelector(".forecast-date");
+      const tempElement = element.querySelector(".forecast-temp");
+      const iconElement = element.querySelector("i");
+
+      if (dateElement)
+        dateElement.textContent = weatherData.forecast[index].date;
+      if (tempElement)
+        tempElement.textContent = `${weatherData.forecast[index].temp}°F`;
+      if (iconElement)
+        iconElement.className = `fas ${weatherData.forecast[index].icon}`;
     }
   });
 }
 
 // Initialize page
 document.addEventListener("DOMContentLoaded", function () {
-  displaySpotlights();
-  fetchWeatherData();
+  // Set footer dates
+  const copyrightYear = document.getElementById("copyright-year");
+  const lastModified = document.getElementById("last-modified");
+
+  if (copyrightYear) copyrightYear.textContent = new Date().getFullYear();
+  if (lastModified) lastModified.textContent = document.lastModified;
+
+  // Only run these if we're on a page that needs them
+  const spotlightsContainer = document.getElementById("spotlightsContainer");
+  const weatherElements = document.querySelector(".weather-temp");
+
+  if (spotlightsContainer) {
+    displaySpotlights();
+  }
+
+  if (weatherElements) {
+    fetchWeatherData();
+  }
 });
