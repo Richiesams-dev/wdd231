@@ -257,7 +257,7 @@ select:focus {
 
 .help-text {
     font-size: 0.875rem;
-    color: #575858;
+    color: #3e3f3f;
     margin-top: 0.5rem;
     line-height: 1.4;
     font-style: italic;
@@ -557,7 +557,7 @@ select:focus {
     }
 }
 
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
     .membership-form {
         border: 2px solid #000;
     }
@@ -571,6 +571,36 @@ select:focus {
     
     .membership-card {
         border: 2px solid #000;
+    }
+    
+    .required-text {
+        color: #000;
+        font-weight: 900;
+    }
+    
+    label {
+        font-weight: 700;
+        color: #000;
+    }
+}
+
+@media (forced-colors: active) {
+    .membership-card {
+        border: 1px solid CanvasText;
+        forced-color-adjust: none;
+    }
+    
+    .membership-card::before {
+        background: LinkText;
+    }
+    
+    .benefits-link {
+        border-color: LinkText;
+        color: LinkText;
+    }
+    
+    .benefits-link:focus {
+        outline-color: Highlight;
     }
 }
 
