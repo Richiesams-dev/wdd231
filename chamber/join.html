@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join the Adesuwa Chamber of Commerce and access exclusive benefits for your business. Choose from NP, Bronze, Silver, or Gold membership levels.">
+    <meta name="author" content="Richman Bibowei Fedidel">
+
+    <meta property="og:title" content="Join - Adesuwa Chamber of Commerce">
+    <meta property="og:description"
+        content="Join the Adesuwa Chamber of Commerce and access exclusive benefits for your business.">
+    <meta property="og:image" content="https://richiesams-dev.github.io/wdd231/chamber/images/logo.png">
+    <meta property="og:url" content="https://richiesams-dev.github.io/wdd231/chamber/join.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Join | Adesuwa Chamber of Commerce</title>
+
+    <link rel="icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/join.css">
+
+    <script src="scripts/join.js" defer></script>
+</head>
+
+<body>
+    <!-- Skip Navigation for Keyboard Users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="site logo"></a>
+            <h2>Adesuwa Chamber of Commerce</h2>
+        </div>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-label">☰</label>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <h1>Join Our Chamber of Commerce</h1>
+            <p>Become a member and unlock exclusive benefits for your business</p>
+        </section>
+
+        <div class="form-container">
+            <section class="membership-form">
+                <h2>Membership Application</h2>
+                <form id="join-form" method="get" action="thankyou.html" novalidate>
+                    
+                    <!-- Personal Information -->
+                    <div class="form-group">
+                        <label for="fname" class="required">
+                            First Name
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <input type="text" id="fname" name="fname" 
+                               title="Enter your first name" 
+                               autocomplete="given-name"
+                               aria-describedby="fname-help"
+                               data-length="2"
+                               required>
+                        <div id="fname-help" class="help-text">
+                            Your legal first name as it appears on official documents
+                        </div>
+                        <div id="fname-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lname" class="required">
+                            Last Name
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <input type="text" id="lname" name="lname" 
+                               title="Enter your last name" 
+                               autocomplete="family-name"
+                               aria-describedby="lname-help"
+                               data-length="2"
+                               required>
+                        <div id="lname-help" class="help-text">
+                            Your legal last name
+                        </div>
+                        <div id="lname-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="org-title">
+                            Organizational Title
+                            <span class="optional-text">(optional)</span>
+                        </label>
+                        <input type="text" id="org-title" name="organizational-title" 
+                               title="Enter your title within your organization" 
+                               autocomplete="organization-title" 
+                               pattern="[A-Za-z\s\-]{7,}"
+                               aria-describedby="title-help">
+                        <div id="title-help" class="help-text">
+                            Minimum 7 characters, letters, spaces and hyphens only
+                        </div>
+                        <div id="org-title-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-group">
+                        <label for="email" class="required">
+                            Email Address
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <input type="email" id="email" name="email" 
+                               title="Enter your email address" 
+                               autocomplete="email" 
+                               placeholder="example@gmail.com"
+                               aria-describedby="email-help"
+                               required>
+                        <div id="email-help" class="help-text">
+                            We'll send your membership confirmation to this address
+                        </div>
+                        <div id="email-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile" class="required">
+                            Mobile Phone Number
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <input type="tel" id="mobile" name="mobile" 
+                               title="Enter your mobile phone number" 
+                               autocomplete="tel"
+                               aria-describedby="mobile-help"
+                               required>
+                        <div id="mobile-help" class="help-text">
+                            For urgent communications about your membership
+                        </div>
+                        <div id="mobile-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Business Information -->
+                    <div class="form-group">
+                        <label for="org-name" class="required">
+                            Business/Organization Name
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <input type="text" id="org-name" name="organization-name" 
+                               title="Enter your business or organization name" 
+                               autocomplete="organization"
+                               aria-describedby="org-help"
+                               data-auto-capitalize="true"
+                               required>
+                        <div id="org-help" class="help-text">
+                            The official name of your business or organization
+                        </div>
+                        <div id="org-name-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="member-level" class="required">
+                            Membership Level
+                            <span class="required-text">(required)</span>
+                        </label>
+                        <select id="member-level" name="membership-level" 
+                                title="Select your desired membership level" 
+                                aria-describedby="level-help"
+                                required>
+                            <option value="">Choose a membership level</option>
+                            <option value="np">NP Membership (Non-Profit) - Free</option>
+                            <option value="bronze">Bronze Membership - $250/year</option>
+                            <option value="silver">Silver Membership - $500/year</option>
+                            <option value="gold">Gold Membership - $1,000/year</option>
+                        </select>
+                        <div id="level-help" class="help-text">
+                            Select the level that best fits your business needs
+                        </div>
+                        <div id="member-level-error" class="error-text" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Conditional Field - Shows only for Gold members -->
+                    <div class="conditional-field" data-show-if="member-level" data-show-value="gold">
+                        <div class="form-group">
+                            <label for="sponsorship">
+                                Sponsorship Interest
+                                <span class="optional-text">(optional)</span>
+                            </label>
+                            <select id="sponsorship" name="sponsorship" 
+                                    aria-describedby="sponsor-help">
+                                <option value="">Not interested at this time</option>
+                                <option value="event">Event Sponsorship</option>
+                                <option value="program">Program Sponsorship</option>
+                                <option value="both">Both Event and Program</option>
+                            </select>
+                            <div id="sponsor-help" class="help-text">
+                                Gold members receive priority sponsorship opportunities
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="org-description">
+                            Business/Organization Description
+                            <span class="optional-text">(optional)</span>
+                        </label>
+                        <textarea id="org-description" name="organization-description" 
+                                  title="Describe your business or organization" 
+                                  rows="4"
+                                  aria-describedby="desc-help"
+                                  placeholder="Tell us about your business, services, and mission..."></textarea>
+                        <div id="desc-help" class="help-text">
+                            This description will appear in our member directory
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="timestamp" name="timestamp">
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Submit Application</span>
+                            <span class="btn-loading" aria-hidden="true">Processing...</span>
+                        </button>
+                        <p class="form-note">
+                            All required fields are marked with <span class="required-text">(required)</span>
+                        </p>
+                    </div>
+                </form>
+            </section>
+
+            <aside id="card-container" class="membership-levels">
+                <!-- Membership cards will be dynamically inserted here -->
+            </aside>
+        </div>
+    </main>
+
+    <!-- Membership Benefit Modals -->
+    <div id="np-modal" class="modal" aria-hidden="true" aria-labelledby="np-modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <h2 id="np-modal-title">NP Membership Benefits</h2>
+            <p>Our NP Membership is designed specifically for non-profit organizations to help them thrive in our community.</p>
+            <ul class="benefits-list">
+                <li>Listing in our online directory</li>
+                <li>Access to member-only events</li>
+                <li>Monthly newsletter subscription</li>
+                <li>Networking opportunities</li>
+                <li>Basic business resources</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="bronze-modal" class="modal" aria-hidden="true" aria-labelledby="bronze-modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <h2 id="bronze-modal-title">Bronze Membership Benefits</h2>
+            <p>All NP benefits plus:</p>
+            <ul class="benefits-list">
+                <li>Enhanced directory listing</li>
+                <li>10% discount on chamber events</li>
+                <li>Business training workshops</li>
+                <li>Access to business referral network</li>
+                <li>Monthly spotlight opportunity</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="silver-modal" class="modal" aria-hidden="true" aria-labelledby="silver-modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <h2 id="silver-modal-title">Silver Membership Benefits</h2>
+            <p>All Bronze benefits plus:</p>
+            <ul class="benefits-list">
+                <li>Premium directory listing with logo</li>
+                <li>25% discount on chamber events</li>
+                <li>Priority registration for workshops</li>
+                <li>Featured in chamber communications</li>
+                <li>Access to exclusive networking events</li>
+                <li>Business consultation sessions</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="gold-modal" class="modal" aria-hidden="true" aria-labelledby="gold-modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <h2 id="gold-modal-title">Gold Membership Benefits</h2>
+            <p>All Silver benefits plus:</p>
+            <ul class="benefits-list">
+                <li>Featured placement in directory</li>
+                <li>50% discount on chamber events</li>
+                <li>VIP access to all chamber functions</li>
+                <li>Quarterly spotlight feature on homepage</li>
+                <li>Dedicated business development support</li>
+                <li>Sponsorship opportunities</li>
+                <li>Board nomination eligibility</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>141 Upper Adesuwa, Benin City, Nigeria </p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@adesuwachamber.org</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="facebook" width="48"
+                            height="48"></a>
+                    <a href="#" aria-label="Twitter"><img src="images/twitter.svg" alt="twitter" width="48"
+                            height="48"></a>
+                    <a href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="instagram" width="48"
+                            height="48"></a>
+                </div>
+            </div>
+            <div class="development-info">
+                <h3>Development Information</h3>
+                <p>
+                    &copy; <span id="copyright-year"></span> Adesuwa Chamber of
+                    Commerce
+                </p>
+                <p>Richman Bibowei Fedidel</p>
+                <p>WDD 231 Project</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

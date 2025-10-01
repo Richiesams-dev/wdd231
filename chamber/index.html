@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Join the Adesuwa Chamber of Commerce to connect with local businesses, access resources, and help our community thrive.">
+    <meta name="author" content="Richman Bibowei Fedidel">
+
+    <meta property="og:title" content="Adesuwa Chamber of Commerce - Home">
+    <meta property="og:description"
+        content="Join the Adesuwa Chamber of Commerce to connect with local businesses, access resources, and help our community thrive.">
+    <meta property="og:image" content="https://richiesams-dev.github.io/wdd231/chamber/images/logo.png">
+    <meta property="og:url" content="https://richiesams-dev.github.io/wdd231/chamber/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Home | Adesuwa Chamber of Commerce</title>
+
+    <link rel="icon" href="images/logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/index.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="directory.html"><img src="images/logo.png" alt="site logo"></a>
+            <h2>Adesuwa Chamber of Commerce</h2>
+        </div>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-label">☰</label>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <img class="hero-image" src="https://www.julius-berger.com/fileadmin/_processed_/9/e/csm_nbcc_nigerian_british_chambers_of_commerce_induction_of_julius_berger_group_e2db81f8a8.jpg"
+            alt="Adesuwa City Skyline">
+        <div class="hero-content">
+            <div class="container">
+                <h1>Welcome to Adesuwa</h1>
+                <p>Join the chamber of commerce to connect with local businesses and help our community thrive.</p>
+                <a href="join.html" class="btn btn-primary">Join the Chamber</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="grid-container">
+            <section class="events-section card">
+                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Current Events</h2>
+                <div class="event-item">
+                    <span class="event-date">June 15, 2023</span>
+                    <h3>Business Networking Breakfast</h3>
+                    <p>Join us for our monthly networking event at the Adesuwa Convention Center. Connect with local
+                        business leaders and entrepreneurs.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+                <div class="event-item">
+                    <span class="event-date">June 22, 2023</span>
+                    <h3>Small Business Workshop</h3>
+                    <p>Learn strategies for growing your business in today's competitive market. Free for chamber
+                        members.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </section>
+
+            <section class="weather-section card">
+                <h2 class="section-title"><i class="fas fa-cloud-sun"></i> Weather</h2>
+                <div class="weather-current">
+                    <i class="fas fa-sun weather-icon"></i>
+                    <div>
+                        <div class="weather-temp">82°F</div>
+                        <div class="weather-desc">Sunny</div>
+                    </div>
+                </div>
+                <div class="weather-forecast">
+                    <div class="forecast-day">
+                        <div class="forecast-date">Tomorrow</div>
+                        <i class="fas fa-cloud-sun"></i>
+                        <div class="forecast-temp">84°F</div>
+                    </div>
+                    <div class="forecast-day">
+                        <div class="forecast-date">Wed</div>
+                        <i class="fas fa-cloud"></i>
+                        <div class="forecast-temp">80°F</div>
+                    </div>
+                    <div class="forecast-day">
+                        <div class="forecast-date">Thu</div>
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                        <div class="forecast-temp">78°F</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="spotlights-section card">
+                <h2 class="section-title"><i class="fas fa-star"></i> Business Spotlights</h2>
+                <div class="spotlights" id="spotlightsContainer">
+                    <!-- Spotlights will be loaded by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>141 Upper Adesuwa, Benin City, Nigeria </p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@adesuwachamber.org</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="facebook" width="48"
+                            height="48"></a>
+                    <a href="#" aria-label="Twitter"><img src="images/twitter.svg" alt="twitter" width="48"
+                            height="48"></a>
+                    <a href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="instagram" width="48"
+                            height="48"></a>
+                </div>
+            </div>
+            <div class="development-info">
+                <h3>Development Information</h3>
+                <p>
+                    &copy; <span id="copyright-year"></span> Adesuwa Chamber of
+                    Commerce
+                </p>
+                <p>Richman Bibowei Fedidel</p>
+                <p>WDD 231 Project</p>
+                <p>Last Modified: <span id="last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
